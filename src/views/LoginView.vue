@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import ButtonComponentVue from '@/components/atoms/ButtonComponent.vue';
 import InputComponent from '@/components/atoms/InputComponent.vue';
+import { removeUser } from '@/utils/ManageUser';
+import {useStore} from "vuex"
+
+const store = useStore()
 
 const handleSubmit = () => {
     console.log("login sample")
