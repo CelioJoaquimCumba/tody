@@ -1,10 +1,25 @@
 <script setup lang="ts">
 import ButtonComponentVue from '@/components/atoms/ButtonComponent.vue';
 import InputComponent from '@/components/atoms/InputComponent.vue';
-import { removeUser } from '@/utils/ManageUser';
 import {useStore} from "vuex"
+import {login} from "../api/Auth"
+import { watchEffect } from 'vue';
+import type { User } from '@/models/UserModel';
+import { setUser } from '@/utils/ManageUser';
 
 const store = useStore()
+
+watchEffect(async () => {
+    try {
+        const user = await login("ccumba82@gmail.com", "Password123.")
+        console.log(user)
+        store.commit("setUser", user)
+        setUser(user)
+    } catch(e) {
+        console.log(e)
+        throw e
+    }
+})
 
 const handleSubmit = () => {
     console.log("login sample")

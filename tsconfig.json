@@ -1,5 +1,8 @@
 {
-  "files": [],
+  "files": [],"useUnknownInCatchVariables": false,
+  "compilerOptions": {
+    "useUnknownInCatchVariables": false
+  },
   "references": [
     {
       "path": "./tsconfig.node.json"
